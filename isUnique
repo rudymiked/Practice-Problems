@@ -1,0 +1,13 @@
+static bool IsUnique(string str) {
+	if (str.Length > 128) 
+return false; // we know there is a duplicate if there are over 128 chars!
+
+	bool[]  charArr = new bool[128]; // max ASCII char 
+	for (int i = 0; i < str.Length; ++i) {
+		int val = (int) str.charAt(i); // this is literally just casting a char to an int
+		if (charArr[val])
+			return false;
+		charArr[val] = true;
+	}
+	return true;
+}
